@@ -12,11 +12,19 @@
             <param name="quantity">Quantity of lines per page.</param>
             <returns></returns>        
         </member>
-        <member name="M:Games.Api.Controllers.GameController.Create(Games.Application.ViewModel.Input.CreateGameInput)">
+        <member name="M:Games.Api.Controllers.GameController.Create(Games.Application.ViewModel.Input.GameInput)">
             <summary>
             Create a Game.
             </summary>
-            <param name="model">Create game input</param>
+            <param name="model">Game Input</param>
+            <returns></returns>
+        </member>
+        <member name="M:Games.Api.Controllers.GameController.Update(System.Guid,Games.Application.ViewModel.Input.GameInput)">
+            <summary>
+            Update a Game.
+            </summary>
+            <param name="id">Game Id</param>
+            <param name="model">Game Input</param>
             <returns></returns>
         </member>
     </members>

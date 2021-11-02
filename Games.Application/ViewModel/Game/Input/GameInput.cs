@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Games.Application.ViewModel.Input
 {
-    public class CreateGameInput
+    public class GameInput
     {
         [Required(ErrorMessage = "O 'Nome' do jogo é obrigatório")]
         [StringLength(maximumLength: 100, MinimumLength = 3, ErrorMessage = "O nome do jogo deve conter entre 3 e 100 caracteres")]
@@ -25,7 +25,7 @@ namespace Games.Application.ViewModel.Input
         public int GenreId { get; set; }
 
 
-        public static implicit operator Game(CreateGameInput model) =>
+        public static implicit operator Game(GameInput model) =>
             new(
                 name: model.Name,
                 producer: model.Producer,

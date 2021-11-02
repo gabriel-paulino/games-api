@@ -12,6 +12,7 @@ namespace Games.Domain.Contracts.Repositories
         Task<IEnumerable<Game>> Get(string name, string producer);
         Task<bool> Create(Game game);
         Task<bool> Update(Game game);
+        Task<bool> UpdatePrice(Game game);
         Task<bool> Delete(Guid id);
     }
 }

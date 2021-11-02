@@ -146,6 +146,27 @@ namespace Games.Infra.Data.Repositories
             return rowsAffected == 1;
         }
 
+        public async Task<bool> UpdatePrice(Game game)
+        {
+            string command =
+                @"
+                    UPDATE [Game] 
+                    SET
+                        [Price] = @Price
+                    WHERE [Id] = @Id
+                ";
+
+            int rowsAffected = await _session.Connection.ExecuteAsync(command, new
+            {
+                game.Id,
+                game.Price
+            },
+            _session.Transaction
+            );
+
+            return rowsAffected == 1;
+        }
+
         public void Dispose()
         {
             if (!_disposed)

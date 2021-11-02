@@ -39,9 +39,23 @@ namespace Games.Application.Services
             return game;
         }
 
-        public async Task Delete(Guid id)
+        public async Task<(bool sucess, string message)> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var game = await _gameRepository.Get(id);
+
+            if (game is null)
+                return (false, "Não existe este Game");
+
+            _unitOfWork.BeginTransaction();
+
+            if (await _gameRepository.Delete(id))
+            {
+                _unitOfWork.Commit();
+                return (true, string.Empty);
+            }
+
+            _unitOfWork.Rollback();
+            return (false, string.Empty);
         }
 
         public async Task<Game> Get(Guid id) =>
@@ -50,14 +64,54 @@ namespace Games.Application.Services
         public async Task<IEnumerable<Game>> Get(int page, int quantity) =>
             await _gameRepository.Get(page, quantity);
 
-        public async Task<Game> Update(Guid id, Game game)
+        public async Task<Game> Update(Guid id, Game updatedGame)
         {
-            throw new NotImplementedException();
+            var game = await _gameRepository.Get(id);
+
+            if (game is null)
+                return null;
+
+            game.Update(updatedGame);
+
+            if (!game.Valid)
+                return game;
+
+            _unitOfWork.BeginTransaction();
+
+            if (await _gameRepository.Update(game))
+            {
+                _unitOfWork.Commit();
+                return game;
+            }
+
+            _unitOfWork.Rollback();
+            game.AddNotification("Falha ao atualizar jogo");
+            return game;
         }
 
         public async Task<Game> UpdatePrice(Guid id, decimal price)
         {
-            throw new NotImplementedException();
+            var game = await _gameRepository.Get(id);
+
+            if (game is null)
+                return null;
+
+            game.SetPrice(price);
+
+            if (!game.Valid)
+                return game;
+
+            _unitOfWork.BeginTransaction();
+
+            if (await _gameRepository.UpdatePrice(game))
+            {
+                _unitOfWork.Commit();
+                return game;
+            }
+
+            _unitOfWork.Rollback();
+            game.AddNotification("Falha ao atualizar jogo");
+            return game;
         }
 
         public void Dispose() =>

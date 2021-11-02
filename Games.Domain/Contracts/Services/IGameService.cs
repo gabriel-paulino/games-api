@@ -12,6 +12,6 @@ namespace Games.Domain.Contracts.Services
         Task<Game> Create(Game game);
         Task<Game> Update(Guid id, Game game);
         Task<Game> UpdatePrice(Guid id, decimal price);
-        Task Delete(Guid id);
+        Task<(bool sucess, string message)> Delete(Guid id);
     }
 }

@@ -33,6 +33,26 @@ namespace Games.Domain.Entities
         public EPlatform Platform { get; private set; }
         public EGenre Genre { get; private set; }
 
+
+        public Game Update(Game updatedGame)
+        {
+            Name = updatedGame.Name;
+            Producer = updatedGame.Producer;
+            Price = updatedGame.Price;
+            Platform = updatedGame.Platform;
+            Genre = updatedGame.Genre;
+
+            DoValidations();
+
+            return this;
+        }
+
+        public void SetPrice(decimal price) 
+        { 
+            Price = price;
+            DoValidations();
+        }
+
         public override void DoValidations()
         {
             ValidatePrice();
@@ -40,7 +60,7 @@ namespace Games.Domain.Entities
 
         private void ValidatePrice()
         {
-            if (Price <= 0)
+            if (Price <= 0 || Price > 1000)
                 AddNotification($"Preço inválido informado para o jogo '{Name}'.");
         }
     }
