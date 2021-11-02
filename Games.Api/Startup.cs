@@ -45,6 +45,7 @@ namespace Games.Api
             {
                 string xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name.ToLower()}.xml";
                 string xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Games Api", Version = "v1" });
             });
         }

@@ -23,6 +23,8 @@ namespace Games.Domain.Entities
             Price = price;
             Platform = platform;
             Genre = genre;
+
+            DoValidations();
         }
 
         public string Name { get; private set; }
@@ -31,7 +33,7 @@ namespace Games.Domain.Entities
         public EPlatform Platform { get; private set; }
         public EGenre Genre { get; private set; }
 
-        public override void DoValidations() 
+        public override void DoValidations()
         {
             ValidatePrice();
         }

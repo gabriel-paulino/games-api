@@ -1,4 +1,4 @@
-﻿using Games.Application.ViewModel.Output;
+﻿using Games.Application.ViewModel.Generic.Output;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Games.Api.Filters
                 return;
 
             context.Result = new BadRequestObjectResult(
-                new ValidateRequiredFieldsViewModelOutput
+                new RequiredFieldsOutput
                 (
                     context.ModelState
                     .SelectMany(f => f.Value.Errors)

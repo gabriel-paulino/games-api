@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModel\Input\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Games.Domain\Games.Domain.csproj" />
   </ItemGroup>
 

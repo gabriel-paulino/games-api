@@ -4,5 +4,20 @@
         <name>Games.Api</name>
     </assembly>
     <members>
+        <member name="M:Games.Api.Controllers.GameController.GetGames(System.Int32,System.Int32)">
+            <summary>
+             Get games using pages.
+            </summary>
+            <param name="page">Quantity of pages.</param>
+            <param name="quantity">Quantity of lines per page.</param>
+            <returns></returns>        
+        </member>
+        <member name="M:Games.Api.Controllers.GameController.Create(Games.Application.ViewModel.Input.CreateGameInput)">
+            <summary>
+            Create a Game.
+            </summary>
+            <param name="model">Create game input</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

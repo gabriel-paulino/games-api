@@ -7,10 +7,10 @@ namespace Games.Domain.Contracts.Services
 {
     public interface IGameService : IDisposable
     {
-        Task<IEnumerable<Game>> GetAll(int page, int quantity);
+        Task<IEnumerable<Game>> Get(int page, int quantity);
         Task<Game> Get(Guid id);
-        Task<Game> Create(Game jogo);
-        Task<Game> Update(Guid id, Game jogo);
+        Task<Game> Create(Game game);
+        Task<Game> Update(Guid id, Game game);
         Task<Game> UpdatePrice(Guid id, decimal price);
         Task Delete(Guid id);
     }
