@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Games.Domain.Contracts.Services
 {
-    interface IGameService : IDisposable
+    public interface IGameService : IDisposable
     {
         Task<IEnumerable<Game>> GetAll(int page, int quantity);
         Task<Game> Get(Guid id);

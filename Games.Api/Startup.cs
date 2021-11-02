@@ -1,3 +1,4 @@
+using Games.Infra.IoC.Injector;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,14 @@ namespace Games.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy(
+                  "CorsPolicy", builder => builder
+                  .WithOrigins("http://localhost:4200")
+                  .AllowAnyMethod()
+                  .AllowAnyHeader());
+            });
 
             services.AddControllers()
                 .ConfigureApiBehaviorOptions(options =>
@@ -28,11 +37,15 @@ namespace Games.Api
                     options.SuppressModelStateInvalidFilter = true;
                 });
 
+            services.AddRouting(c => c.LowercaseUrls = true);
+
+            NativeInjector.RegisterServices(services);
+
             services.AddSwaggerGen(c =>
             {
                 string xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name.ToLower()}.xml";
                 string xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Games.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Games Api", Version = "v1" });
             });
         }
 

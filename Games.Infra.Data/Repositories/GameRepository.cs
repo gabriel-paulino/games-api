@@ -9,12 +9,12 @@ namespace Games.Infra.Data.Repositories
 {
     public class GameRepository : IGameRepository
     {
-        private readonly DbSession _dbSession;
+        private readonly DbSession _session;
         private bool _disposed = false;
 
-        public GameRepository(DbSession dbSession)
+        public GameRepository(DbSession session)
         {
-            _dbSession = dbSession;
+            _session = session;
         }
 
         ~GameRepository() =>
@@ -53,7 +53,7 @@ namespace Games.Infra.Data.Repositories
         public void Dispose()
         {
             if (!_disposed)
-                _dbSession.Dispose();
+                _session.Dispose();
             GC.SuppressFinalize(this);
         }
     }
