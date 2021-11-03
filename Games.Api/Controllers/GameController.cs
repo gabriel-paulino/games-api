@@ -56,7 +56,7 @@ namespace Games.Api.Controllers
         [SwaggerResponse(statusCode: 400, description: "Invalid Entity", Type = typeof(EntityNotificationOutput<Game>))]
         [CustomValidateModelState]
         [Route("api/[controller]")]
-        public async Task<ActionResult<GameOutput>> Create(GameInput model)
+        public async Task<ActionResult<GameOutput>> Create([FromBody] GameInput model)
         {
             var game = await _gameService.Create(model);
 
@@ -104,7 +104,6 @@ namespace Games.Api.Controllers
         [SwaggerResponse(statusCode: 200, description: "Game", Type = typeof(GameOutput))]
         [SwaggerResponse(statusCode: 404, description: "Not found", Type = typeof(NotFoundOutput<Game>))]
         [SwaggerResponse(statusCode: 400, description: "Invalid Entity", Type = typeof(EntityNotificationOutput<Game>))]
-        [CustomValidateModelState]
         [Route("api/[controller]/{id:guid}/price/{price:decimal}")]
         public async Task<ActionResult<GameOutput>> UpdatePrice([FromRoute] Guid id, [FromRoute] decimal price)
         {
@@ -128,7 +127,6 @@ namespace Games.Api.Controllers
         [SwaggerResponse(statusCode: 200, description: "Sucess")]
         [SwaggerResponse(statusCode: 400, description: "Fail", Type = typeof(string))]
         [SwaggerResponse(statusCode: 404, description: "Not found", Type = typeof(string))]       
-        [CustomValidateModelState]
         [Route("api/[controller]/{id:guid}")]
         public async Task<ActionResult<GameOutput>> Delete([FromRoute] Guid id)
         {

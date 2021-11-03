@@ -6,7 +6,7 @@
     <members>
         <member name="M:Games.Api.Controllers.GameController.GetGames(System.Int32,System.Int32)">
             <summary>
-             Get games using pages.
+             Get games using pages
             </summary>
             <param name="page">Quantity of pages.</param>
             <param name="quantity">Quantity of lines per page.</param>
@@ -14,17 +14,32 @@
         </member>
         <member name="M:Games.Api.Controllers.GameController.Create(Games.Application.ViewModel.Input.GameInput)">
             <summary>
-            Create a Game.
+            Create a Game
             </summary>
             <param name="model">Game Input</param>
             <returns></returns>
         </member>
         <member name="M:Games.Api.Controllers.GameController.Update(System.Guid,Games.Application.ViewModel.Input.GameInput)">
             <summary>
-            Update a Game.
+            Update a Game
             </summary>
             <param name="id">Game Id</param>
             <param name="model">Game Input</param>
+            <returns></returns>
+        </member>
+        <member name="M:Games.Api.Controllers.GameController.UpdatePrice(System.Guid,System.Decimal)">
+            <summary>
+            Update only the price of a specific Game
+            </summary>
+            <param name="id">Game Id</param>
+            <param name="price">New Price</param>
+            <returns></returns>
+        </member>
+        <member name="M:Games.Api.Controllers.GameController.Delete(System.Guid)">
+            <summary>
+            Delete a Game
+            </summary>
+            <param name="id">Game Id</param>
             <returns></returns>
         </member>
     </members>
