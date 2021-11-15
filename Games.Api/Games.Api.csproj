@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Games.Application\Games.Application.csproj" />
-    <ProjectReference Include="..\Games.Infra.IoC\Games.Infra.IoC.csproj" />
+    <ProjectReference Include="..\Games.Infra.CrossCutting\Games.Infra.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

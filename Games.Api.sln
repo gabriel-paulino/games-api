@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Api", "Games.Api\Games.Api.csproj", "{CCBCE634-FFB9-40B3-95BD-65F945089C0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Api", "Games.Api\Games.Api.csproj", "{CCBCE634-FFB9-40B3-95BD-65F945089C0E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{8417C3C5-A981-48DA-A520-CAF0B799C9AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Infra.Data", "Games.Infra.Data\Games.Infra.Data.csproj", "{A5528535-E033-49D8-9E7E-B8BF2062E3AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Infra.Data", "Games.Infra.Data\Games.Infra.Data.csproj", "{A5528535-E033-49D8-9E7E-B8BF2062E3AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Infra.IoC", "Games.Infra.IoC\Games.Infra.IoC.csproj", "{93D8FB16-49F5-4A59-8D4E-ABF8ED1566E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Infra.CrossCutting", "Games.Infra.CrossCutting\Games.Infra.CrossCutting.csproj", "{93D8FB16-49F5-4A59-8D4E-ABF8ED1566E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Domain", "Games.Domain\Games.Domain.csproj", "{30902B2B-BDF0-459F-B78E-0BCAA46200EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Domain", "Games.Domain\Games.Domain.csproj", "{30902B2B-BDF0-459F-B78E-0BCAA46200EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Application", "Games.Application\Games.Application.csproj", "{26851E32-FFA6-4CE1-BB10-995561DD5E35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Application", "Games.Application\Games.Application.csproj", "{26851E32-FFA6-4CE1-BB10-995561DD5E35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

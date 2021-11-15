@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace Games.Application.ViewModel.Output
+namespace Games.Domain.ViewModel
 {
-    public class GameOutput
+    public class GameViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -13,8 +13,9 @@ namespace Games.Application.ViewModel.Output
         public int PlatformId { get; set; }
         public int GenreId { get; set; }
 
-        public static implicit operator GameOutput(Game game) =>
-            new()
+        public static implicit operator GameViewModel(Game game) =>
+            game is null ? default
+            : new()
             {
                 Id = game.Id,
                 Name = game.Name,
@@ -24,9 +25,9 @@ namespace Games.Application.ViewModel.Output
                 GenreId = (int)game.Genre,
             };
 
-        public static IEnumerable<GameOutput> MapMany(IEnumerable<Game> games)
+        public static IEnumerable<GameViewModel> MapMany(IEnumerable<Game> games)
         {
-            var gamesOutput = new List<GameOutput>();
+            var gamesOutput = new List<GameViewModel>();
 
             foreach (var game in games)
                 gamesOutput.Add(game);
