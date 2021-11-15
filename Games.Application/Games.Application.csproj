@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Games.Application</AssemblyName>
+    <RootNamespace>Games.Service</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

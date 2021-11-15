@@ -1,4 +1,5 @@
-using Games.Infra.IoC.Injector;
+using Games.Infra.CrossCutting.Filter;
+using Games.Infra.CrossCutting.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,17 +26,26 @@ namespace Games.Api
             services.AddCors(c =>
             {
                 c.AddPolicy(
-                  "CorsPolicy", builder => builder
-                  .WithOrigins("http://localhost:4200")
-                  .AllowAnyMethod()
-                  .AllowAnyHeader());
+                    "CorsPolicy", builder => builder
+                        .WithOrigins("http://localhost:4200")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                    );
             });
 
+            services.AddMvc(options =>
+            {
+                options.EnableEndpointRouting = false;
+                options.Filters.Add<NotificationFilter>();
+            });
+
+            /*
             services.AddControllers()
                 .ConfigureApiBehaviorOptions(options =>
                 {
                     options.SuppressModelStateInvalidFilter = true;
                 });
+            */
 
             services.AddRouting(c => c.LowercaseUrls = true);
 

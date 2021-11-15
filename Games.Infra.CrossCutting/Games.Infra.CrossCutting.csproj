@@ -2,14 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Games.Infra.CrossCutting</AssemblyName>
+    <RootNamespace>Games.Infra.CrossCutting</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Games.Application\Games.Application.csproj" />
+    <ProjectReference Include="..\Games.Domain\Games.Domain.csproj" />
     <ProjectReference Include="..\Games.Infra.Data\Games.Infra.Data.csproj" />
   </ItemGroup>
 
