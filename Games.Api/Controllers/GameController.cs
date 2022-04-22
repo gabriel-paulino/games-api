@@ -29,7 +29,7 @@ namespace Games.Api.Controllers
         [HttpGet]
         [SwaggerResponse(statusCode: 200, description: "Games", Type = typeof(GameViewModel))]
         [SwaggerResponse(statusCode: 204)]
-        [Route("api/[controller]")]
+        [Route("api/games")]
         public async Task<ActionResult<IEnumerable<GameViewModel>>> GetGames(
             [FromQuery, Range(1, int.MaxValue)] int page = 1,
             [FromQuery, Range(1, 50)] int quantity = 5)
